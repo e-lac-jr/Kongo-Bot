@@ -15,7 +15,7 @@ module.exports = {
                 message.channel.send('Game Over');
             }
             if(msg.content === 'roll' && stop === false){
-                message.channel.send(`${message.author} has rolled down to ` + (counter -= getRandomInt(counter)) + '!');
+                message.channel.send(`${message.author} has rolled down to ` + (counter -= (getRandomInt(counter) + 1)) + '!');
             }
         })
     }
