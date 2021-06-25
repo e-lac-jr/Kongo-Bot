@@ -1,0 +1,2 @@
+# Kongobot
+Personal Discord bot.
