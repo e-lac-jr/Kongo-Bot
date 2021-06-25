@@ -13,6 +13,7 @@ module.exports = {
             if(counter == 0) {
                 stop = true;
                 message.channel.send('Game Over');
+                counter = 10000;
             }
             if(msg.content === 'roll' && stop === false){
                 message.channel.send(`${message.author} has rolled down to ` + (counter -= (getRandomInt(counter) + 1)) + '!');
