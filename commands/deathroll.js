@@ -34,7 +34,13 @@ module.exports = {
          * Step 3: Reaction starts the game
          * Step 4: Another embed pops up to scramble roll order and give a visual update of the game after every roll
          * ***/
-		await gatherPlayers(message);
-		message.channel.send({ embed: exampleEmbed });
+		try {
+			await gatherPlayers(message);
+			message.channel.send({ embed: exampleEmbed });
+		}
+		catch (error) {
+			message.channel.send('Something went wrong trying to execute deathroll');
+			console.log(error);
+		}
 	},
 };
