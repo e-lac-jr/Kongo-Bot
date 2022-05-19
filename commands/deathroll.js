@@ -18,9 +18,7 @@ function getRandomInt(max) {
 async function gatherPlayers(message) {
 	try {
 		message.channel.send('Please react 🤑 to join the deathroll! \n https://www.gannett-cdn.com/authoring/2006/07/29/NSHT/ghows-LK-de1b4563-79ef-4cbf-8111-79e9784801a2-f8312043.jpeg?crop=799,451,x0,y15&width=799&height=451&format=pjpg&auto=webp')
-			.then(m => m.react('🤑'))
-			.then(m => m.createReactionCollector({ filter, time: 15_000 }))
-			.then(c => c.on('collect', r => console.log(`Collected ${r.emoji.name}`)));
+			.then(m => m.react('🤑'));
 	}
 	catch (error) {
 		message.channel.send('Something failed while gathering players');
@@ -40,7 +38,7 @@ module.exports = {
          * ***/
 		try {
 			await gatherPlayers(message, client);
-			message.channel.send({ embed: exampleEmbed });
+			message.channel.send({ embeds: [exampleEmbed] });
 		}
 		catch (error) {
 			message.channel.send('Something went wrong trying to execute deathroll');
