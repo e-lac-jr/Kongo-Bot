@@ -8,13 +8,21 @@ const exampleEmbed = new MessageEmbed()
 		{ name: '\u200B', value: '\u200B' },
 	)
 	.setTimestamp();
+const playerList = [];
 
 function getRandomInt(max) {
 	return Math.floor(Math.random() * max);
 }
 
-// async function gatherPlayers() {
-// }
+async function gatherPlayers(message) {
+	try {
+		message.channel.send('test gather player');
+	}
+	catch (error) {
+		message.channel.send('failed test gather player');
+		console.log(error);
+	}
+}
 
 module.exports = {
 	name: 'deathroll',
@@ -26,7 +34,7 @@ module.exports = {
          * Step 3: Reaction starts the game
          * Step 4: Another embed pops up to scramble roll order and give a visual update of the game after every roll
          * ***/
-		// await gatherPlayers();
+		await gatherPlayers(message);
 		message.channel.send({ embed: exampleEmbed });
 	},
 };
