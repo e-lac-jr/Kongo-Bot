@@ -6,7 +6,7 @@ client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 
 ['command_handler', 'event_handler'].forEach(handler => {
-    require(`./handlers/${handler}`)(client, Discord);
-})
+	require(`./handlers/${handler}`)(client, Discord);
+});
 
-client.login('insert token here');
+client.login('ODQxNTMzOTI0MzM2ODYxMTk0.YJoJig.O_ZdGl9NaFHosdNRsNpz087Qn5M');

@@ -1,3 +1,3 @@
-module.exports = () =>{
-    console.log("Kongo bot online!");
-}
+module.exports = () => {
+	console.log('Kongo bot online!');
+};
