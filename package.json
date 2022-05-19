@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/e-lac-jr/KongoBot#readme",
   "dependencies": {
-    "discord.js": "^12.5.3",
+    "discord.js": "^13.7.0",
     "fs": "0.0.1-security",
     "images-scraper": "^6.3.0"
   },
