@@ -16,10 +16,10 @@ function getRandomInt(max) {
 
 async function gatherPlayers(message) {
 	try {
-		message.channel.send('test gather player');
+		message.channel.send('Please react to this message to join the deathroll! \n https://i.ebayimg.com/images/g/IFQAAOSw44BYCBB1/s-l400.jpg');
 	}
 	catch (error) {
-		message.channel.send('failed test gather player');
+		message.channel.send('Something failed while gathering players');
 		console.log(error);
 	}
 }
