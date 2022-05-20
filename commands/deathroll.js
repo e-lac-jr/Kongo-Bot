@@ -18,7 +18,7 @@ async function gatherPlayers(message) {
 				const filter = (reaction, user) => reaction.emoji.name === '🤑' && !user.bot;
 				const collector = m.createReactionCollector({ filter, time: 10000 });
 				collector.on('collect', (reaction, user) => {
-					m.channel.send(`Collected reaction from ${user.tag}`);
+					m.channel.send(`${user.tag} has joined the deathroll!`);
 					playerList.push(user.tag);
 					console.log(playerList);
 				});
