@@ -6,6 +6,7 @@ const exampleEmbed = new MessageEmbed()
 const gatherPlayerEmbed = new MessageEmbed()
 	.setTitle('Please react 🤑 to join the deathroll! You have 10 seconds to join!!')
 	.setImage('https://www.gannett-cdn.com/authoring/2006/07/29/NSHT/ghows-LK-de1b4563-79ef-4cbf-8111-79e9784801a2-f8312043.jpeg?crop=799,451,x0,y15&width=799&height=451&format=pjpg&auto=webp');
+const playerList = [];
 
 function getRandomInt(max) {
 	return Math.floor(Math.random() * max);
@@ -18,12 +19,11 @@ function shuffleArray(array) {
 	}
 }
 
-async function playGame(message) {
+async function gatherPlayers(message) {
 	try {
 		message.channel.send({ embeds : [gatherPlayerEmbed] }) // 'Please react 🤑 to join the deathroll! You have 10 seconds to join!! \n https://www.gannett-cdn.com/authoring/2006/07/29/NSHT/ghows-LK-de1b4563-79ef-4cbf-8111-79e9784801a2-f8312043.jpeg?crop=799,451,x0,y15&width=799&height=451&format=pjpg&auto=webp')
 			.then(m => {
 				// Gathering players
-				const playerList = [];
 				m.react('🤑');
 				const filter = (reaction, user) => reaction.emoji.name === '🤑' && !user.bot;
 				const collector = m.createReactionCollector({ filter, time: 10000 });
@@ -37,7 +37,6 @@ async function playGame(message) {
 					// console.log(playerList.join('\r\n'));
 					exampleEmbed.addField('Player list:', playerList.join('\r\n'));
 					m.channel.send({ embeds: [exampleEmbed] });
-					// Maybe place game here
 				});
 			});
 	}
@@ -57,7 +56,7 @@ module.exports = {
          * Step 3: Another embed pops up to scramble roll order and give a visual update of the game after every roll
          * ***/
 		try {
-			await playGame(message);
+			gatherPlayers(message);
 		}
 		catch (error) {
 			message.channel.send('Something went wrong trying to execute deathroll');
